@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Admin Login</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #0a0a0f;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* AI Background Image */
+        .background-image {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: url('static/images/background.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            filter: brightness(1) contrast(1.5);
+            z-index: 0;
+        }
+
+        /* Dark Overlay */
+        /* .dark-overlay {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                135deg,
+                rgba(10, 10, 15, 0.85) 0%,
+                rgba(20, 20, 40, 0.75) 50%,
+                rgba(30, 15, 40, 0.85) 100%
+            );
+            z-index: 1;
+        } */
+
+        /* Animated AI Neural Network Overlay */
+        /* .neural-network {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(64, 224, 208, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 40% 80%, rgba(138, 43, 226, 0.15) 0%, transparent 50%);
+            filter: blur(60px);
+            animation: morphBackground 10s ease-in-out infinite;
+            z-index: 2;
+        } */
+
+        /* @keyframes morphBackground {
+            0%, 100% { 
+                transform: scale(1) rotate(0deg);
+                opacity: 0.8;
+            }
+            50% { 
+                transform: scale(1.2) rotate(5deg);
+                opacity: 0.6;
+            }
+        }
+
+        /* Animated Grid Pattern */
+        /* .grid-pattern {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(120, 119, 198, 0.08) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(120, 119, 198, 0.08) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: gridMove 20s linear infinite;
+            opacity: 0.3;
+            z-index: 2;
+        }
+
+        @keyframes gridMove {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+
+        /* Floating Particles */
+        /* .particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 3;
+        }
+
+        .particle {
+            position: absolute;
+            background: rgba(120, 119, 198, 0.6);
+            border-radius: 50%;
+            box-shadow: 0 0 20px rgba(120, 119, 198, 0.8);
+            animation: float 15s infinite ease-in-out; */
+        /* } */
+
+        /* @keyframes float {
+            0%, 100% { 
+                transform: translateY(0) translateX(0) scale(1);
+                opacity: 0.3;
+            }
+            50% { 
+                transform: translateY(-150px) translateX(100px) scale(1.2);
+                opacity: 0.8;
+            }
+        } */
+
+        /* Circuit Lines Animation */
+        /* .circuit-lines {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(90deg, transparent 0%, rgba(64, 224, 208, 0.15) 50%, transparent 100%);
+            background-size: 200% 100%;
+            animation: circuitPulse 3s ease-in-out infinite;
+            opacity: 0.4;
+            z-index: 3;
+        }
+
+        @keyframes circuitPulse {
+            0%, 100% { background-position: 0% 0%; }
+            50% { background-position: 100% 0%; }
+        }  */
+
+        /* Glassmorphism Login Container */
+        .login-container {
+            background: rgba(15, 15, 25, 0.75);
+            backdrop-filter: blur(25px) saturate(180%);
+            -webkit-backdrop-filter: blur(25px) saturate(180%);
+            padding: 50px 45px;
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            box-shadow:
+                0 8px 32px 0 rgba(0, 0, 0, 0.7),
+                inset 0 1px 0 0 rgba(255, 255, 255, 0.1),
+                0 0 80px rgba(120, 119, 198, 0.15);
+            width: 420px;
+            z-index: 10;
+            position: relative;
+            animation: slideIn 0.6s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px) scale(0.95);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        /* Glowing Top Border Effect */
+        .login-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            height: 2px;
+            background: linear-gradient(90deg,
+                    transparent,
+                    rgba(120, 119, 198, 0.9),
+                    rgba(64, 224, 208, 0.9),
+                    transparent);
+            border-radius: 2px;
+            animation: glow 2s ease-in-out infinite;
+        }
+
+        @keyframes glow {
+
+            0%,
+            100% {
+                opacity: 0.5;
+            }
+
+            50% {
+                opacity: 1;
+            }
+        }
+
+        .login-header {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .login-header h1 {
+            color: #ffffff;
+            font-size: 21px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            background: linear-gradient(135deg, #7877c6 0%, #40e0d0 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: 1px;
+            text-shadow: 0 0 30px rgba(120, 119, 198, 0.5);
+        }
+
+        .login-header p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 14px;
+            font-weight: 300;
+        }
+
+        /* AI Icon */
+        .ai-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 20px;
+            background: linear-gradient(135deg, #bc981a 0%, #d1b328 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            box-shadow: 0 0 40px rgb(198 183 119 / 70%);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+                box-shadow: 12 12 40px rgba(62, 24, 22, 0.7);
+            }
+
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 0 60px rgba(109, 116, 28, 1.95);
+            }
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            color: rgba(255, 255, 255, 0.95);
+            font-weight: 500;
+            font-size: 14px;
+            letter-spacing: 0.5px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 14px 18px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 12px;
+            font-size: 15px;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.06);
+            color: #ffffff;
+            backdrop-filter: blur(10px);
+        }
+
+        .form-group input::placeholder {
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: rgb(139 130 86);
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 0 3px rgb(198 171 119 / 15%), 0 0 25px rgb(73 72 67);
+        }
+
+        .error-message {
+            color: #ff6b6b;
+            font-size: 13px;
+            margin-top: 12px;
+            text-align: center;
+            display: none;
+            animation: shake 0.3s;
+            padding: 10px;
+            background: rgba(255, 107, 107, 0.12);
+            border-radius: 8px;
+            border: 1px solid rgba(255, 107, 107, 0.25);
+        }
+
+        @keyframes shake {
+
+            0%,
+            100% {
+                transform: translateX(0);
+            }
+
+            25% {
+                transform: translateX(-8px);
+            }
+
+            75% {
+                transform: translateX(8px);
+            }
+        }
+
+        .login-button {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #E6D16F 0%, #cdae1c 100%);
+            color: #652825;
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+            position: relative;
+            overflow: hidden;
+            letter-spacing: 0.5px;
+        }
+
+        .login-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .login-button:hover::before {
+            left: 100%;
+        }
+
+        .login-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 35px rgb(135 132 107);
+        }
+
+        .login-button:active {
+            transform: translateY(0);
+        }
+
+        .login-button:disabled {
+            background: rgba(255, 255, 255, 0.1);
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .loading {
+            display: none;
+            text-align: center;
+            margin-top: 18px;
+            color: #40e0d0;
+            font-size: 14px;
+        }
+
+        .spinner {
+            border: 3px solid rgba(255, 255, 255, 0.1);
+            border-top: 3px solid #40e0d0;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            animation: spin 1s linear infinite;
+            display: inline-block;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 500px) {
+            .login-container {
+                width: 90%;
+                padding: 40px 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="background-image">
+        <video autoplay muted loop id="myVideo">
+            <source src="../static/videos/background_video.mp4" type="video/mp4">
+        </video>
+    </div>
+    <div class="dark-overlay"></div>
+    <div class="neural-network"></div>
+    <div class="grid-pattern"></div>
+    <div class="circuit-lines"></div>
+    <div class="particles" id="particles"></div>
+
+    <div class="login-container">
+        <!-- <div class="ai-icon">🤖</div> -->
+        <div class="ai-icon"><img src="../static/images/logo png no bg.png" style="width: 323%;"></div>
+        <div class="login-header">
+            <h1><img src="../static/images/Designer.png" style="width: 75%;"></h1>
+            <!-- <p>Enter credentials to access the neural interface</p> -->
+        </div>
+
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="username">USERNAME</label>
+                <input type="text" id="username" name="username" required autocomplete="username"
+                    placeholder="Enter your username">
+            </div>
+
+            <div class="form-group">
+                <label for="password">PASSWORD</label>
+                <input type="password" id="password" name="password" required autocomplete="current-password"
+                    placeholder="Enter your password">
+            </div>
+
+            <div class="error-message" id="errorMessage"></div>
+
+            <button type="submit" class="login-button" id="loginButton">
+                ACCESS SYSTEM
+            </button>
+
+            <div class="loading" id="loading">
+                <div class="spinner"></div>
+                Authenticating...
+            </div>
+        </form>
+    </div>
+
+    <script>
+        // Create animated particles
+        const particlesContainer = document.getElementById('particles');
+        const particleCount = 30;
+
+        for (let i = 0; i < particleCount; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+
+            const size = Math.random() * 4 + 2;
+            particle.style.width = size + 'px';
+            particle.style.height = size + 'px';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.top = Math.random() * 100 + '%';
+            particle.style.animationDelay = Math.random() * 15 + 's';
+            particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
+
+            particlesContainer.appendChild(particle);
+        }
+
+        // Handle form submission
+        document.getElementById('loginForm').addEventListener('submit', async function (e) {
+            e.preventDefault();
+
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const errorMessage = document.getElementById('errorMessage');
+            const loginButton = document.getElementById('loginButton');
+            const loading = document.getElementById('loading');
+
+            errorMessage.style.display = 'none';
+            loginButton.disabled = true;
+            loading.style.display = 'block';
+
+            try {
+                const response = await fetch('/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ username, password })
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    loginButton.textContent = '✓ ACCESS GRANTED';
+                    loginButton.style.background = 'linear-gradient(135deg, #00ff88 0%, #00cc66 100%)';
+                    setTimeout(() => {
+                        window.location.href = '/';
+                    }, 500);
+                } else {
+                    errorMessage.textContent = '⚠ ' + (data.message || 'Invalid credentials');
+                    errorMessage.style.display = 'block';
+                }
+            } catch (error) {
+                errorMessage.textContent = '⚠ Connection error. Please try again.';
+                errorMessage.style.display = 'block';
+            } finally {
+                if (!document.getElementById('loginButton').textContent.includes('GRANTED')) {
+                    loginButton.disabled = false;
+                    loading.style.display = 'none';
+                }
+            }
+        });
+
+        document.querySelectorAll('input').forEach(input => {
+            input.addEventListener('keydown', function (e) {
+                if (e.key === 'Enter') {
+                    this.style.transform = 'scale(0.98)';
+                    setTimeout(() => {
+                        this.style.transform = 'scale(1)';
+                    }, 100);
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
