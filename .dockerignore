@@ -1,0 +1,26 @@
+# CRITICAL: Ignore these folders
+venv/
+.venv/
+uploads/
+uploaded_docs/
+qdrant_storage/
+model/
+stpackages.zip
+model.zip
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Git
+.git/
+.gitignore
+
+# IDE
+.vscode/
+.idea/
+
+# App Data
+talwar_chat_app.db
+*.db-journal

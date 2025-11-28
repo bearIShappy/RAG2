@@ -18,7 +18,7 @@ class SLM_TALWAR:
             n_threads=8
         )
         self.system_message = "You are TALWAR, a friendly and knowledgeable AI assistant developed by DGIS.When the user explicitly asks your name or who developed/created you, you must reply exactly:'TALWAR, developed by DGIS.' Do not give this response unless the user directly asks."
-        self.rag_message = """You are Talwar, a helpful AI assistant specialized in explaining document content. 
+        self.rag_message = """You are TALWAR, a helpful AI assistant specialized in explaining document content. 
 
 Your task is to answer questions based on the provided context. Follow these rules:
 1. Answer the question using information from the context

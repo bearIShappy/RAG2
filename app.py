@@ -450,8 +450,8 @@ def chat():
     db.commit()
     return jsonify({'response': response_text, 'chat_id': current_chat_id})
 
+init_db()
 if __name__ == '__main__':
-    init_db()
     print("Starting Flask application...")
     print("Flask app running on http://0.0.0.0:5000")
     app.run(debug=True, port=5000, host='0.0.0.0')
